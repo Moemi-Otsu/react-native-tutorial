@@ -1,28 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, Image, ScrollView, View, TextInput, Button } from 'react-native';
 
-const styles = StyleSheet.create({
-  center: {
-    alignItems: 'center'
-  }
-})
-
-const Greeting = (props) => {
+const App = () => {
   return (
-    <View style={styles.center}>
-      <Text>Hello {props.name}</Text>
-    </View>
+    <ScrollView>
+      <View>
+        <Text>Some text</Text>
+        <Image
+          source={{
+            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
+          }}
+          style={{ width:200, height: 200 }}
+        />
+      </View>
+      <TextInput
+        style={{
+          height: 40,
+          borderColor: 'gray',
+          borderWidth: 1
+        }}
+        defaultValue='You can type in me'
+      />
+    </ScrollView>
   );
 }
 
-const LotsOfGreetings = () => {
-  return (
-    <View style={[styles.center, {top: 50}]}>
-      <Greeting name='Rexxar' />
-      <Greeting name='Jaina' />
-      <Greeting name='Valeera' />
-    </View>
-  );
-}
-
-export default LotsOfGreetings;
+export default App;
