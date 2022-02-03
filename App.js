@@ -1,22 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 
-const Cat = (props) => {
+const CatApp = () => {
   return (
     <View>
-      <Text>Hello, I am {props.name}!</Text>
+      <Image
+        source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
+        style={{width: 200, height: 200}}
+        />
+      <Text>Hello, I am yout cat!</Text>
     </View>
   );
 }
 
-const Cafe = () => {
-  return (
-    <View>
-      <Cat name="Maru" />
-      <Cat name="JellyLorum" />
-      <Cat name="Spot" />
-    </View>
-  );
-}
-
-export default Cafe;
+export default CatApp;
