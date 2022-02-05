@@ -1,16 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import {Text, View, Button} from 'react-native';
+import React, { useState } from "react";
 
-const CatApp = () => {
+const Cat = (props) => {
+  const [isHungry, setIsHungry] = useState(true);
+
   return (
     <View>
-      <Image
-        source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
-        style={{width: 200, height: 200}}
+      <Text>
+        I am {props.name}, and I am {isHungry ? "hungry" : "full"}!
+      </Text>
+      <Button
+        onPress={() => {
+          setIsHungry(false);
+        }}
+        disabled={!isHungry}
+        title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
         />
-      <Text>Hello, I am yout cat!</Text>
     </View>
   );
 }
 
-export default CatApp;
+const Cafe = () => {
+  return (
+    <>
+      <Cat name="Munkustrap" />
+      <Cat name="Spot" />
+    </>
+  );
+}
+
+export default Cafe;
